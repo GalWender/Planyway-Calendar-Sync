@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Planyway Calendar Sync",
+  "version": "1.0.0",
+  "description": "Automatically import Planyway tasks into Google Calendar",
+  "key": "nfopibbhinbjjacglbbnnnjiclggblep",
+  "permissions": [
+    "identity",
+    "identity.email",
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.planyway.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "YOUR_CLIENT_ID_HERE",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar",
+      "https://www.googleapis.com/auth/calendar.events"
+    ]
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.planyway.com/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "public/icon16.png",
+      "48": "public/icon48.png",
+      "128": "public/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "public/icon16.png",
+    "48": "public/icon48.png",
+    "128": "public/icon128.png"
+  }
+}
