@@ -39,16 +39,31 @@ This Chrome extension allows you to synchronize tasks from Planyway to Google Ca
 
 ## Setting Up Google API Credentials
 
-To use this extension, you need to set up your Google API credentials:
+1. **Create a Google Cloud Project**
+   - Go to the [Google Cloud Console](https://console.cloud.google.com/).
+   - Create a new project.
 
-1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
-2. Create a new project.
-3. Navigate to "APIs & Services" > "Credentials".
-4. Click "Create Credentials" and select "OAuth client ID".
-5. Configure the consent screen if prompted.
-6. Set the application type to "Chrome App" and provide the necessary details.
-7. Note the Client ID generated.
-8. Replace the placeholder in your code with your actual Client ID.
+2. **Enable APIs**
+   - Navigate to "APIs & Services" > "Library".
+   - Enable the following APIs:
+     - Google Calendar API
+     - Identity API
+     - Identity Management API
+
+3. **Create OAuth Credentials**
+   - Go to "APIs & Services" > "Credentials".
+   - Click "Create Credentials" and select "OAuth client ID".
+   - Configure the consent screen if prompted.
+   - Set the application type to "Chrome Extension" and provide the necessary details.
+   - Note the Client ID generated.
+
+4. **Replace the Placeholder**
+   - Replace the `YOUR_CLIENT_ID_HERE` placeholder in the `manifest.json` file with your actual Client ID.
+
+5. **Security Note**
+   - Keep your Client ID secure and do not share it publicly.
+
+This setup is necessary for the extension to authenticate with Google services and sync your tasks to Google Calendar.
 
 ## Important
 
